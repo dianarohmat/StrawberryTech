@@ -1,0 +1,77 @@
+<html>
+<body>
+<title>Strawberry Tech</title>
+<style type="text/css">
+h1{
+	padding-left: 300px;
+}
+form{
+	padding-left: 550px;
+}
+#on{
+	position: absolute;
+	top: 100px;
+	width: 70px;
+	height: 50px;
+}
+#off{
+	position: absolute;
+	top: 200px;
+	width: 70px;
+	height: 50px;
+}
+</style>
+<h1> Strawberry Tech </h1>
+
+<button type = "button" name ="on" id="inputbtn1" value=1>on</button>
+<button type = "button" name ="off" id="inputbtn2" value=0>off</button>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7p4Z7mzkupJeAJy0ixmIkEkmPKibZ56Y",
+    authDomain: "controllight-8e0d4.firebaseapp.com",
+    databaseURL: "https://controllight-8e0d4.firebaseio.com",
+    projectId: "controllight-8e0d4",
+    storageBucket: "",
+    messagingSenderId: "384245426281"
+  };
+  firebase.initializeApp(config);
+  
+  var thebuttonthaticlick = "haha"
+  
+	// on code
+	$( "#inputbtn1" ).click(function() {
+	  var btnval = this.value;
+	  console.log(btnval);
+	  var rootRef = firebase.database().ref().child("devices");
+	  rootRef.set({
+		rpi: btnval
+	  });
+	});
+	
+	// off code
+	 $( "#inputbtn2" ).click(function() {
+	  var btnval = this.value;
+	  console.log(btnval);
+	  var rootRef = firebase.database().ref().child("devices");
+	  rootRef.set({
+		rpi: btnval
+	  });
+	});
+	
+	
+// thebuttonthaticlick.addEventListener('click', e =>{
+//	  
+//	});
+	
+	
+	  
+
+</script>
+</body>
+</html>
+
